@@ -19,7 +19,7 @@ class Hasher {
     *
     * The decimal rank is converted to the base which radix is equal to the length of $letters.
     * Each character of the string representation of the converted rank is then converted back
-    * to 10-base.
+    * to 10-base, and used as an index in $letters to create the word.
     */
     public function nthWord($rank) {
 

@@ -49,9 +49,12 @@ class HashBinarySearch {
         $this->hasher = $hasher;
     }
 
-    public function find($target) {
-        $max = pow(strlen($this->hasher->letters()), strlen($target)) - 1;
-        return $this->search($target, 0, $max);
+    public function find($target, $length) {
+        $letterNumber = strlen($this->hasher->letters());
+
+        $left = pow($letterNumber, $length - 1);
+        $right = pow($letterNumber, $length) - 1;
+        return $this->search($target, $left, $right);
     }
 
     public function search($target, $left, $right) {
@@ -78,7 +81,7 @@ class HashBinarySearch {
 
 $search = new HashBinarySearch(new Hasher('acdegilmnoprstuw'));
 
-echo $search->find('945924806726376');
+echo $search->find('945924806726376', 9);
 echo PHP_EOL;
 
 ?>
